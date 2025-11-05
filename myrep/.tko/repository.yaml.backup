@@ -11,8 +11,8 @@ sources:
   link: https://github.com/qxcodepoo/arcade.git
   type: clone
   branch: master
-  cache_path: ''
-  cache_timestamp: '2025-11-04 22:03:51'
+  cache_path: /workspaces/poo-dd-cd-bloco-c-LarissaCassemiro/myrep/.tko/cache/poo/Readme.md
+  cache_timestamp: '2025-11-03 19:13:29'
   filters:
   - listas
 expanded:

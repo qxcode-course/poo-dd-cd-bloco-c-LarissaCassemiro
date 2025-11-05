@@ -33,17 +33,37 @@ class Budega:
 
 
     def give_up(self, nome: str):
+        aux = self.espera
         for i, pessoa in enumerate(self.espera):
             if pessoa.nome == nome:
                 aux = self.espera
                 del self.espera[i]
                 break
+        self.espera = aux
 
 
     def __str__(self):
-        caixas = ", ".join(["----" if x is None else str(x) for x in self.caixas])
+        caixas = ", ".join(["-----" if x is None else str(x) for x in self.caixas])
         espera = ", ".join([str(x) for x in self.espera])
-        return f"Caixas: [{caixas}] /nEspera: [{espera}]"
+        return f"Caixas: [{caixas}]\nEspera: [{espera}]"
 
-def main()
-pessoa = Pessoa
+
+def main():
+    budega = Budega(0)
+    while True:
+        line = input()
+        print(f"${line}")
+        args = line.split()
+
+        if args[0] == "end":
+            break
+        elif args[0] == "init":
+            budega = Budega(int(args[1]))
+
+        elif args[0] == "show":
+            print(budega)
+
+        elif args[0] == "arrive":
+            nome_cliente = args[1]
+            budega.espera.append(Pessoa(nome_cliente))
+main()
