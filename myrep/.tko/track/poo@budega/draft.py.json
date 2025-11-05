@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-04_18-01-55",
+            "content": "class Pessoa:\n    def __init__(self, nome: str):\n        self.nome = nome \n\n    def __str__(self):\n        return self.nome\n\nclass Budega: \n    def __init__(self, num_caixas: int):\n        self.caixas: list[Pessoa | None] = []\n        for _ in range(num_caixas):\n            self.caixas.append(None)\n        self.espera: list[Pessoa] = []\n\n    def enter(self, pessoa: Pessoa):\n        self.espera.append(pessoa)\n\n    def call(self, index: int):\n        if index < 0 or index >= len(self.caixas):\n            print(\"indice inexistente\")\n            return \n        if self.caixas[index] is not None:\n            print(\"caixa ocupado\")\n            return\n        if len (self.espera) == 0:\n            print(\"ninguem esperando\") \n            return \n        self.caixas[index] = self.espera[0]\n        del self.espera[0]\n\n    def finish(self, index: int):\n        self.caixas[index] = None \n\n\n    def give_up(self, nome: str):\n        for i, pessoa in enumerate(self.espera):\n            if pessoa.nome == nome:\n                aux = self.espera\n                del self.espera[i]\n                break\n\n\n    def __str__(self):\n        caixas = \", \".join([\"----\" if x is None else str(x) for x in self.caixas])\n        espera = \", \".join([str(x) for x in self.espera])\n        return f\"Caixas: [{caixas}] /nEspera: [{espera}]\"\n\ndef main()\npessoa = Pessoa",
+            "lines": "49"
+        }
+    ]
+}
