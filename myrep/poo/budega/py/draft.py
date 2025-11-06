@@ -17,19 +17,26 @@ class Budega:
 
     def call(self, index: int):
         if index < 0 or index >= len(self.caixas):
-            print("indice inexistente")
+            print("fail: caixa inexistente")
             return 
         if self.caixas[index] is not None:
-            print("caixa ocupado")
+            print("fail: caixa ocupado")
             return
         if len (self.espera) == 0:
-            print("ninguem esperando") 
+            print("fail: sem clientes")
             return 
         self.caixas[index] = self.espera[0]
         del self.espera[0]
 
+
     def finish(self, index: int):
-        self.caixas[index] = None 
+        if index < 0 or index >= len(self.caixas):
+            print("fail: caixa inexistente")
+            return
+        if self.caixas[index] is None:
+            print("fail: caixa vazio")
+            return
+        self.caixas[index] = None
 
 
     def give_up(self, nome: str):
@@ -65,5 +72,14 @@ def main():
 
         elif args[0] == "arrive":
             nome_cliente = args[1]
-            budega.espera.append(Pessoa(nome_cliente))
+            budega.enter(Pessoa(nome_cliente))
+        
+        elif args[0] == "call":
+            budega.call(int(args[1]))
+
+        elif args[0] == "finish":
+            budega.finish(int(args[1]))
+
+        elif args[0] == "giveup":
+            budega.give_up(args[1])
 main()

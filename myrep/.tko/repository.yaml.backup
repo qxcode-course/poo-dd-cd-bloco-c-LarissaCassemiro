@@ -12,18 +12,20 @@ sources:
   type: clone
   branch: master
   cache_path: /workspaces/poo-dd-cd-bloco-c-LarissaCassemiro/myrep/.tko/cache/poo/Readme.md
-  cache_timestamp: '2025-11-03 19:13:29'
+  cache_timestamp: '2025-11-05 21:59:34'
   filters:
   - listas
 expanded:
 - poo@campanha-principal
 - poo@bloco_c-listas
-tasks: {}
+tasks:
+  poo@budega: '{rate:100}'
+  poo@pula-pula: '{rate:100}'
 flags:
   quests: 0
   tracks: 0
   tasks: 1
-  graph: 0
+  graph: 1
   xray: 0
 lang: py
-selected: poo@budega
+selected: poo@cinema
