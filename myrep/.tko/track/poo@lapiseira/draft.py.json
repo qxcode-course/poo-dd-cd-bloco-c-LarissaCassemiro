@@ -1,0 +1,249 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-10_12-04-08",
+            "content": "@@ -1424,16 +1424,20 @@\n rn f%22%22 %0A\n+    \n %0A    def\n@@ -2118,31 +2118,25 @@\n lf.bico%5B\n-Grafite.\n+%22\n tamanho\n+%22\n %5D %3C= 10:\n@@ -2237,28 +2237,24 @@\n rn %0A    \n-    \n %0A       \n  expessu\n@@ -2249,142 +2249,8 @@\n     \n- expessura: dict%5Bstr, int%5D = %7B%0A            %22HB%22: 1,%0A            %222B%22: 2, %0A            %224B%22: 4,%0A            %226B%22: 6%0A        %7D%0A        #\n  gas\n@@ -2339,17 +2339,20 @@\n a * \n-expessura\n+gastoGrafite\n %0A%0A  \n@@ -2374,23 +2374,17 @@\n ico%5B\n-Grafite.\n+%22\n tamanho\n+%22\n %5D - \n@@ -2493,701 +2493,5 @@\n turn\n-%0A        %0Aclass Grafite: %0A    def __init__(self, tamanho: int, dureza: int, calibre: int):%0A        self.tamanho = tamanho%0A        self.dureza = dureza%0A        self.calibre = calibre %0A        %0Adef main():%0A    lapiseira = Lapiseira()%0A    while True:%0A        line = input()%0A        print(%22$+%7Bline%7D%22)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break %0A%0A        elif args%5B0%5D == %22init%22:%0A            lapiseira = Lapiseira(int(args%5B1%5D))%0A        %0A        elif args%5B0%5D == %22insert%22:%0A            calibre = float(args%5B1%5D)%0A            dureza = args%5B2%5D%0A            tamanho = int(args%5B3%5D)%0A            grafite = Grafite(calibre, dureza, tamanho)%0A            lapiseira.inserir(grafite)%0A%0A%0A%0A\n+ \n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-11_15-57-27",
+            "content": "@@ -1245,364 +1245,8 @@\n o.%0A%0A\n-class Grafite: %0A    def __init__(self, tamanho: int, dureza: int, calibre: int):%0A        self._tamanho = tamanho%0A        self._dureza = dureza%0A        self._calibre = calibre %0A    %0A    def get_tamanho(self):%0A        return self._tamanho%0A    %0A    def get_dureza(self):%0A        return self._dureza%0A    %0A    def get_calibre(self):%0A        return self._calibre\n %0A%0Acl\n@@ -1308,25 +1308,24 @@\n        self.\n-_\n calibre = ca\n@@ -1339,25 +1339,24 @@\n        self.\n-_\n bico = None%0A\n@@ -1364,25 +1364,24 @@\n        self.\n-_\n tambor = %5B%5D%0A\n@@ -1463,23 +1463,48 @@\n alibre: \n-Grafite\n+float, dureza: str, tamanho: int\n ):%0A     \n@@ -1525,17 +1525,16 @@\n != self.\n-_\n calibre:\n@@ -1615,17 +1615,16 @@\n    self.\n-_\n tambor.a\n@@ -1630,23 +1630,74 @@\n append (\n-calibre\n+%7B%22calibre%22: calibre, %22dureza%22: dureza, %22tamanho%22: tamanho%7D\n )%0A%0A    d\n@@ -1727,33 +1727,32 @@\n         if self.\n-_\n bico is not None\n@@ -1889,25 +1889,24 @@\n        self.\n-_\n bico = self.\n@@ -1916,16 +1916,17 @@\n bor.pop(\n+0\n )%0A    %0A \n@@ -1959,25 +1959,24 @@\n     if self.\n-_\n bico is None\n@@ -2109,17 +2109,16 @@\n if self.\n-_\n bico%5BGra\n@@ -2642,16 +2642,188 @@\n        %0A\n+class Grafite: %0A    def __init__(self, tamanho: int, dureza: int, calibre: int):%0A        self.tamanho = tamanho%0A        self.dureza = dureza%0A        self.calibre = calibre \n %0A       \n",
+            "lines": "105"
+        },
+        {
+            "label": "2025-11-11_16-09-29",
+            "content": "@@ -3445,14 +3445,8 @@\n ite)%0A%0A%0A%0A\n-main()\n",
+            "lines": "114"
+        },
+        {
+            "label": "2025-11-11_16-09-41",
+            "content": "@@ -1634,24 +1634,38 @@\n _init__(self\n+, calibre: int\n ):%0A        s\n@@ -1679,19 +1679,22 @@\n libre = \n-Non\n+calibr\n e%0A      \n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-11-16",
+            "content": "@@ -3172,20 +3172,18 @@\n piseira(\n-floa\n+in\n t(args%5B1\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-13-39",
+            "content": "@@ -3018,16 +3018,17 @@\n print(%22$\n++\n %7Bline%7D%22)\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-13-54",
+            "content": "@@ -1638,25 +1638,16 @@\n t__(self\n-, calibre\n ):%0A     \n@@ -1665,22 +1665,19 @@\n libre = \n-calibr\n+Non\n e%0A      \n@@ -2961,20 +2961,16 @@\n piseira(\n-None\n )%0A    wh\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-14-32",
+            "content": "@@ -3038,9 +3038,8 @@\n t(%22$\n-+\n %7Blin\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-14-41",
+            "content": "@@ -3035,13 +3035,12 @@\n rint\n- (f\n+(\n %22$\n++\n %7Blin\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-15-09",
+            "content": "@@ -1779,76 +1779,8 @@\n n f%22\n-calibre:%7Bself._calibre%7D, bico:%7Bself._bico%7D, tambor:%3C%7Bself._tambor%7D%3E \n %22 %0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-16-41",
+            "content": "@@ -3516,68 +3516,8 @@\n te)%0A\n-        elif args%5B0%5D == %22show%22:%0A            print(lapiseira)\n %0A%0A%0Am\n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-17-15",
+            "content": "@@ -1783,17 +1783,16 @@\n calibre:\n- \n %7Bself._c\n@@ -1805,17 +1805,16 @@\n %7D, bico:\n- \n %7Bself._b\n@@ -1826,17 +1826,16 @@\n  tambor:\n- \n %3C%7Bself._\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-17-36",
+            "content": "@@ -1829,16 +1829,17 @@\n tambor: \n+%3C\n %7Bself._t\n@@ -1848,10 +1848,10 @@\n bor%7D\n-%3C\n %3E\n+ \n %22 %0A%0A\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-17-55",
+            "content": "@@ -1703,18 +1703,20 @@\n _bico = \n-%5B%5D\n+None\n %0A       \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-18-24",
+            "content": "@@ -1729,16 +1729,18 @@\n ambor = \n+%5B%5D\n %0A%0A    de\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-18-47",
+            "content": "@@ -1729,18 +1729,16 @@\n ambor = \n-%5B%5D\n %0A%0A    de\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-18-54",
+            "content": "@@ -1841,16 +1841,18 @@\n _tambor%7D\n+%3C%3E\n %22 %0A%0A    \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-19-09",
+            "content": "@@ -2725,16 +2725,89 @@\n       %7D%0A\n+        # gastoGrafite = %7B%22HB%22: 1, %222B%22: 2, %224B%22: 4, %226B%22: 6 %5B%22dureza%22%5D%7D%0A\n         \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-19-50",
+            "content": "@@ -2190,25 +2190,24 @@\n if len(self.\n-_\n tambor) == 0\n@@ -2249,25 +2249,24 @@\n bico = self.\n-_\n tambor.pop()\n@@ -2544,33 +2544,32 @@\n            self.\n-_\n bico = None%0A    \n@@ -2729,81 +2729,8 @@\n   %7D%0A\n-        # gastoGrafite = %7B%22HB%22: 1, %222B%22: 2, %224B%22: 4, %226B%22: 6 %5B%22dureza%22%5D%7D%0A\n     \n@@ -2770,33 +2770,32 @@\n         if self.\n-_\n bico%5BGrafite.tam\n@@ -2873,25 +2873,24 @@\n        self.\n-_\n bico = None \n",
+            "lines": "115"
+        },
+        {
+            "label": "2025-11-11_16-25-46",
+            "content": "@@ -1827,17 +1827,16 @@\n tambor: \n-%3C\n %7Bself._t\n@@ -1845,9 +1845,8 @@\n bor%7D\n-%3E\n %22 %0A%0A\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-26-39",
+            "content": "@@ -1733,26 +1733,10 @@\n r = \n-list = int %7C None \n+%5B%5D\n %0A%0A  \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-27-27",
+            "content": "@@ -1733,17 +1733,19 @@\n r = list\n-%5B\n+ = \n int %7C No\n@@ -1746,17 +1746,17 @@\n t %7C None\n-%5D\n+ \n %0A%0A    de\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-27-41",
+            "content": "@@ -1729,17 +1729,31 @@\n ambor = \n-%5B\n+list%5Bint %7C None\n %5D%0A%0A    d\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-28-21",
+            "content": "@@ -1838,264 +1838,20 @@\n elf.\n-get\n _tambor\n-()\n %7D%3E%22 %0A\n-    %0A    def get_tambor(self):%0A        grafites_reserva = %22%22%0A        for elem in self._tambor:%0A            grafites_reserva += %22%5B%22%0A            grafites_reserva += elem %0A            grafites_reserva += %22%5D%22%0A%0A        return grafites_reserva%0A%0A\n %0A   \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-11-11_16-35-16",
+            "content": "@@ -2120,22 +2120,22 @@\n e(self, \n-grafit\n+calibr\n e: Grafi\n@@ -2154,17 +2154,8 @@\n  if \n-grafite._\n cali\n@@ -2273,22 +2273,22 @@\n append (\n-grafit\n+calibr\n e)%0A%0A    \n@@ -3765,21 +3765,8 @@\n te)%0A\n-            %0A\n     \n",
+            "lines": "126"
+        },
+        {
+            "label": "2025-11-11_16-40-41",
+            "content": "@@ -3760,23 +3760,16 @@\n .inserir\n-Grafite\n (grafite\n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-41-12",
+            "content": "@@ -1302,19 +1302,19 @@\n dureza: \n-str\n+int\n , calibr\n@@ -1316,20 +1316,18 @@\n alibre: \n-floa\n+in\n t):%0A    \n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-43-36",
+            "content": "@@ -1641,39 +1641,32 @@\n __(self, calibre\n-: float\n ):%0A        self.\n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-44-18",
+            "content": "@@ -2152,62 +2152,8 @@\n e):%0A\n-        print(grafite._calibre, %22 - %22, self._calibre)%0A\n     \n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-45-26",
+            "content": "@@ -3768,23 +3768,23 @@\n Grafite(\n-tamanho\n+calibre\n , dureza\n@@ -3785,23 +3785,23 @@\n dureza, \n-calibre\n+tamanho\n )%0A      \n",
+            "lines": "128"
+        },
+        {
+            "label": "2025-11-11_16-47-24",
+            "content": "@@ -2148,16 +2148,70 @@\n afite):%0A\n+        print(grafite._calibre, %22 - %22, self._calibre)%0A\n         \n",
+            "lines": "128"
+        },
+        {
+            "label": "2025-11-11_16-47-51",
+            "content": "@@ -2027,17 +2027,13 @@\n  += \n-str(\n elem\n-)\n+ \n %0A   \n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-49-46",
+            "content": "@@ -1603,101 +1603,8 @@\n ibre\n-%0A    %0A    def __str__(self):%0A        return f%22%7Bself._calibre%7D:%7Bself._dureza%7D:%7Bself._tamanho%7D%22\n %0A%0Acl\n@@ -2293,16 +2293,17 @@\n r.append\n+ \n (grafite\n",
+            "lines": "127"
+        },
+        {
+            "label": "2025-11-11_16-52-31",
+            "content": "@@ -3960,86 +3960,8 @@\n ra)%0A\n-        %0A        elif args%5B0%5D == %22pull%22:%0A            lapiseira.puxarGrafite()%0A\n %0A%0Ama\n",
+            "lines": "130"
+        },
+        {
+            "label": "2025-11-11_16-54-07",
+            "content": "@@ -1802,25 +1802,21 @@\n lf._bico\n-: Grafite\n+ = %5B%5D\n %0A       \n",
+            "lines": "133"
+        },
+        {
+            "label": "2025-11-11_16-56-13",
+            "content": "@@ -1815,16 +1815,8 @@\n fite\n- %7C None \n %0A   \n",
+            "lines": "133"
+        },
+        {
+            "label": "2025-11-11_16-57-06",
+            "content": "@@ -1925,19 +1925,16 @@\n : %7Bself.\n-get\n _bico%7D, \n@@ -2211,68 +2211,8 @@\n rva%0A\n-    %0A    def get_bico(self):%0A        return str(self._bico)%0A\n %0A%0A  \n",
+            "lines": "133"
+        },
+        {
+            "label": "2025-11-11_16-59-36",
+            "content": "@@ -1933,18 +1933,16 @@\n get_bico\n-()\n %7D, tambo\n",
+            "lines": "136"
+        },
+        {
+            "label": "2025-11-11_16-59-50",
+            "content": "@@ -1819,23 +1819,16 @@\n  %7C None \n-= None \n %0A       \n",
+            "lines": "136"
+        },
+        {
+            "label": "2025-11-11_17-05-45",
+            "content": "@@ -2252,64 +2252,8 @@\n f):%0A\n-        if self._bico is None: %0A            return %22%5B%5D%22%0A\n     \n",
+            "lines": "136"
+        },
+        {
+            "label": "2025-11-11_17-07-02",
+            "content": "@@ -2322,13 +2322,8 @@\n turn\n- %22%5B%22+\n  str\n@@ -2338,14 +2338,8 @@\n ico)\n- + %22%5D%22\n %0A%0A%0A \n",
+            "lines": "138"
+        },
+        {
+            "label": "2025-11-11_17-07-42",
+            "content": "@@ -2777,14 +2777,11 @@\n bor.\n-delete\n+pop\n ()%0A \n",
+            "lines": "138"
+        },
+        {
+            "label": "2025-11-11_17-09-47",
+            "content": "@@ -2777,13 +2777,15 @@\n bor.\n-pop(0\n+delete(\n )%0A  \n",
+            "lines": "138"
+        },
+        {
+            "label": "2025-11-11_17-10-16",
+            "content": "@@ -2916,75 +2916,8 @@\n urn%0A\n-        if self._bico is not None: %0A            self._bico = None %0A\n     \n@@ -4191,75 +4191,8 @@\n ()%0A%0A\n-        elif args%5B0%5D == %22remove%22:%0A            lapiseira.remover()%0A%0A\n %0Amai\n",
+            "lines": "138"
+        },
+        {
+            "label": "2025-11-11_17-12-37",
+            "content": "@@ -3023,113 +3023,10 @@\n nt):\n-%0A\n   \n-      if self._bico is None: %0A            print(%22fail: nao existe grafite no bico%22)%0A            return\n %0A   \n@@ -4324,83 +4324,8 @@\n r()%0A\n-        %0A        elif args%5B0%5D == %22write%22:%0A            lapiseira.escrever()%0A\n %0A%0Ama\n",
+            "lines": "143"
+        },
+        {
+            "label": "2025-11-11_17-14-36",
+            "content": "@@ -2997,32 +2997,44 @@\n ef escrever(self\n+, folha: int\n ):%0A        if se\n@@ -3419,18 +3419,16 @@\n        #\n- #\n  gastoGr\n@@ -3490,18 +3490,16 @@\n %0A       \n- #\n  consumo\n@@ -3527,18 +3527,16 @@\n %0A       \n- #\n  if self\n@@ -3578,26 +3578,24 @@\n  10:%0A       \n- #\n      print(%22\n@@ -3622,26 +3622,24 @@\n ta%22)%0A       \n- #\n      self._b\n@@ -3657,18 +3657,16 @@\n %0A       \n- #\n      ret\n",
+            "lines": "149"
+        },
+        {
+            "label": "2025-11-11_17-17-23",
+            "content": "@@ -3147,21 +3147,15 @@\n ite.\n-get_\n tamanho\n-()\n %5D %3C=\n",
+            "lines": "149"
+        },
+        {
+            "label": "2025-11-11_17-18-15",
+            "content": "@@ -3134,16 +3134,24 @@\n lf._bico\n+%5BGrafite\n .get_tam\n@@ -3156,16 +3156,17 @@\n amanho()\n+%5D\n  %3C= 10:%0A\n",
+            "lines": "149"
+        },
+        {
+            "label": "2025-11-11_17-21-05",
+            "content": "# - Iniciar lapiseira\n#   - Inicia uma lapiseira de determinado calibre sem grafite.\n#   - Lapiseiras possuem um bico e um tambor.\n#   - O bico guarda o grafite que est\u00e1 em uso.\n#   - O tambor guarda os grafites reservas.\n# - Inserir grafite\n#   - Insere um grafite passando\n#     - o calibre: float.\n#     - a dureza: string.\n#     - o tamanho em mm: int.\n#   - N\u00e3o deve aceitar um grafite de calibre n\u00e3o compat\u00edvel.\n#   - O grafite \u00e9 colocado como o \u00daLTIMO grafite do tambor.\n# - Puxar grafite\n#   - Puxa o grafite do tambor para o bico.\n#   - Se j\u00e1 tiver um grafite no bico, esse precisa ser removido primeiro.\n# - Remover grafite\n#   - Retira o grafite do bico.\n# - Escrever folha\n#   - N\u00e3o \u00e9 poss\u00edvel escrever se n\u00e3o h\u00e1 grafite no bico.\n#   - Quanto mais macio o grafite, mais rapidamente ele se acaba. Para simplificar, use a seguinte regra:\n#     - Grafite HB: 1mm por folha.\n#     - Grafite 2B: 2mm por folha.\n#     - Grafite 4B: 4mm por folha.\n#     - Grafite 6B: 6mm por folha.\n#   - O \u00faltimo cent\u00edmetro de um grafite n\u00e3o pode ser aproveitado, quando o grafite estiver com 10mm, n\u00e3o \u00e9 mais poss\u00edvel escrever e o grafite deve ser retirado.\n#   - Se n\u00e3o houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.\n\nclass Grafite: \n    def __init__(self, tamanho: int, dureza: str, calibre: float):\n        self._tamanho = tamanho\n        self._dureza = dureza\n        self._calibre = calibre \n    \n    def get_tamanho(self):\n        return self._tamanho\n    \n    def get_dureza(self):\n        return self._dureza\n    \n    def get_calibre(self):\n        return self._calibre\n    \n    def __str__(self):\n        return f\"{self._calibre}:{self._dureza}:{self._tamanho}\"\n\nclass Lapiseira: \n    def __init__(self, calibre: float):\n        self._calibre = calibre\n        self._bico: Grafite | None = None \n        self._tambor = []\n\n    def __str__(self):\n        return f\"calibre: {self._calibre}, bico: {self.get_bico()}, tambor: <{self.get_tambor()}>\" \n    \n    def get_tambor(self):\n        grafites_reserva = \"\"\n        for elem in self._tambor:\n            grafites_reserva += \"[\"\n            grafites_reserva += str(elem)\n            grafites_reserva += \"]\"\n\n        return grafites_reserva\n    \n    def get_bico(self):\n        if self._bico is None: \n            return \"[]\"\n        return \"[\"+ str(self._bico) + \"]\"\n\n\n    def inserirGrafite(self, grafite: Grafite):\n        if grafite._calibre != self._calibre:\n            print(\"fail: calibre incompat\u00edvel\")\n            return \n        self._tambor.append(grafite)\n\n    def puxarGrafite(self):\n        if self._bico is not None: \n            print(\"fail: ja existe grafite no bico\")\n            return \n        if len(self._tambor) == 0:\n            return\n        self._bico = self._tambor.pop(0)\n    \n    def remover(self):\n        if self._bico is None:\n            print(\"fail: nao existe grafite no bico\")\n            return\n        if self._bico is not None: \n            self._bico = None \n    \n    def escrever(self):\n        if self._bico is None: \n            print(\"fail: nao existe grafite no bico\")\n            return\n        if self._bico.get_tamanho() <= 10:\n            print(\"fail: tamanho insuficiente\")\n            self._bico = None\n            return \n        \n        expessura: dict[str, int] = {\n            \"HB\": 1,\n            \"2B\": 2, \n            \"4B\": 4,\n            \"6B\": 6\n        }\n        # # gastoGrafite = {\"HB\": 1, \"2B\": 2, \"4B\": 4, \"6B\": 6 [\"dureza\"]}\n        # consumo = folha * expessura\n\n        # if self._bico[Grafite.tamanho] - consumo < 10:\n        #     print(\"fail: folha incompleta\")\n        #     self._bico = None \n        #     return\n        \n\n        \ndef main():\n    lapiseira = Lapiseira(None)\n    while True:\n        line = input()\n        print (f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break \n\n        elif args[0] == \"init\":\n            lapiseira = Lapiseira(float(args[1]))\n        \n        elif args[0] == \"insert\":\n            calibre = float(args[1])\n            dureza = args[2]\n            tamanho = int(args[3])\n            grafite = Grafite(tamanho, dureza, calibre)\n            lapiseira.inserirGrafite(grafite)\n            \n        elif args[0] == \"show\":\n            print(lapiseira)\n        \n        elif args[0] == \"pull\":\n            lapiseira.puxarGrafite()\n\n        elif args[0] == \"remove\":\n            lapiseira.remover()\n        \n        elif args[0] == \"write\":\n            lapiseira.escrever()\n\n\nmain()",
+            "lines": "149"
+        }
+    ]
+}

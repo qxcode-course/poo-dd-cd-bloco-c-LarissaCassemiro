@@ -1,0 +1,94 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-06_22-14-30",
+            "content": "@@ -3812,12 +3812,4 @@\n %5B1%5D)\n-%0A%0Amain()\n",
+            "lines": "84"
+        },
+        {
+            "label": "2025-11-06_22-15-26",
+            "content": "@@ -2943,35 +2943,34 @@\n ras is not None \n-and\n+or\n  cadeiras.id == \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-18-51",
+            "content": "@@ -3196,14 +3196,8 @@\n turn\n- %22%5B%22 +\n  %22, \n@@ -3262,14 +3262,8 @@\n as%5D)\n- + %22%5D%22\n %0A   \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-20-30",
+            "content": "@@ -3196,16 +3196,23 @@\n turn %22%5B%22\n+ + %22, %22\n . join(%5B\n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-20-54",
+            "content": "@@ -3193,17 +3193,16 @@\n  return \n-(\n %22%5B%22. joi\n@@ -3263,17 +3263,16 @@\n %5D) + %22%5D%22\n-)\n %0A    %0Ade\n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-22-01",
+            "content": "@@ -3197,23 +3197,20 @@\n urn \n+(\n %22%5B%22\n- + %22 %22\n .\n+ \n join(\n+%5B\n %22-%22 \n@@ -3252,20 +3252,25 @@\n elf.\n-seats\n+cadeiras%5D\n ) + %22%5D%22\n+)\n %0A   \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-22-45",
+            "content": "@@ -3251,23 +3251,20 @@\n in self.\n-cadeira\n+seat\n s) + %22%5D%22\n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-23-07",
+            "content": "@@ -3674,9 +3674,9 @@\n rgs%5B\n-2\n+1\n %5D)%0A \n@@ -3707,9 +3707,9 @@\n rgs%5B\n-3\n+2\n %5D)%0A \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-23-52",
+            "content": "@@ -3730,17 +3730,17 @@\n a.reserv\n-e\n+a\n (id, pho\n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-24-53",
+            "content": "@@ -3637,20 +3637,15 @@\n d = \n-str(\n args%5B1%5D\n-)\n %0A   \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-29-18",
+            "content": "@@ -2774,32 +2774,36 @@\n return %0A        \n+    \n self.cadeiras %5Bi\n@@ -3008,16 +3008,17 @@\n ras%5Bi%5D =\n+=\n   None%0A \n@@ -3633,23 +3633,28 @@\n    id = \n+str(\n args%5B1%5D\n+)\n %0A       \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-31-15",
+            "content": "@@ -2778,25 +2778,8 @@\n rn %0A\n-            %0A    \n     \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-06_22-31-56",
+            "content": "@@ -2050,1301 +2050,8 @@\n e.%0A%0A\n-# class Cliente: %0A#     def __init__(self, id: str, phone: int, index: int):%0A#         self.id = id %0A#         self.phone = phone %0A    %0A#     def __str__(self):%0A#         return f%22%7Bself.id%7D:%7Bself.phone%7D%22%0A%0A# class Sala: %0A#     def __init__(self, quant_cadeiras):%0A#         self.cadeiras:list%5BCliente %7C None%5D = %5B%5D%0A#         for _ in range (quant_cadeiras):%0A#             self.cadeiras.append(None)%0A%0A#     def reserve(self, id: str, phone: int, index: int):%0A#         if index %3C 0 or index %3E= len(self.cadeiras):%0A#             print(%22fail: cadeira nao existe%22)%0A#             return %0A#         for cadeiras in self.cadeiras:%0A#             if cadeiras is not None and cadeiras.id == id: %0A#                 print(%22fail: cadeira ja esta ocupada%22)%0A#                 return %0A            %0A#             self.cadeiras %5Bindex%5D = Cliente(id, phone)%0A%0A%0A#     def cancel(self, id: str):%0A#         for i, cadeiras in enumerate(self.cadeiras):%0A#             if cadeiras is not None and cadeiras.id == id:%0A#                 self.cadeiras%5Bi%5D =  None%0A#                 return %0A#         print(%22fail: cliente nao esta no cinema%22)%0A%0A#     def get_cadeiras (self):%0A#         return self.cadeiras %0A    %0A#     def __str__(self):%0A#         return %22%5B%22 + %22 %22.join(%22-%22 if x is None else str(x) for x in self.cadeiras) + %22%5D%22%0A\n clas\n@@ -2096,24 +2096,36 @@\n  str, phone:\n+ int, index:\n  int):%0A     \n@@ -2314,17 +2314,16 @@\n adeiras:\n- \n list%5BCli\n@@ -2338,20 +2338,25 @@\n one%5D = %5B\n-None\n+%5D%0A       \n  for _ i\n@@ -2362,16 +2362,17 @@\n in range\n+ \n (quant_c\n@@ -2379,17 +2379,56 @@\n adeiras)\n-%5D\n+:%0A            self.cadeiras.append(None)\n %0A%0A    de\n@@ -2477,17 +2477,16 @@\n : int):%0A\n-%0A\n         \n@@ -2598,59 +2598,9 @@\n turn\n-%0A%0A        # Verifica se o cliente j%C3%A1 est%C3%A1 no cinema\n+ \n %0A   \n@@ -2611,24 +2611,25 @@\n  for cadeira\n+s\n  in self.cad\n@@ -2649,32 +2649,33 @@\n       if cadeira\n+s\n  is not None and\n@@ -2674,32 +2674,33 @@\n None and cadeira\n+s\n .id == id:%0A     \n@@ -2685,32 +2685,33 @@\n deiras.id == id:\n+ \n %0A               \n@@ -2729,111 +2729,30 @@\n l: c\n-liente ja esta no cinema%22)%0A                return%0A        %0A        # Verifica se a c\n adeir\n+a j\n a est\n-%C3%A1\n+a\n  ocupada\n %0A   \n@@ -2747,16 +2747,18 @@\n  ocupada\n+%22)\n %0A       \n@@ -2762,95 +2762,23 @@\n     \n-if self.cadeiras%5Bindex%5D is not None:%0A            print(%22fail: cadeira ja esta ocupada%22)\n+        return \n %0A   \n@@ -2790,44 +2790,13 @@\n     \n-return%0A\n %0A    \n-    # Reserva a cadeira%0A\n     \n@@ -2812,16 +2812,17 @@\n cadeiras\n+ \n %5Bindex%5D \n@@ -2839,24 +2839,25 @@\n id, phone)%0A%0A\n+%0A\n     def canc\n@@ -2897,16 +2897,17 @@\n  cadeira\n+s\n  in enum\n@@ -2950,16 +2950,17 @@\n  cadeira\n+s\n  is not \n@@ -2975,16 +2975,17 @@\n  cadeira\n+s\n .id == i\n@@ -3021,16 +3021,17 @@\n ras%5Bi%5D =\n+ \n  None%0A  \n@@ -3050,16 +3050,17 @@\n   return\n+ \n %0A       \n@@ -3103,16 +3103,80 @@\n nema%22)%0A%0A\n+    def get_cadeiras (self):%0A        return self.cadeiras %0A    %0A\n     def \n@@ -3279,16 +3279,20 @@\n ) + %22%5D%22%0A\n+    \n %0Adef mai\n",
+            "lines": "87"
+        },
+        {
+            "label": "2025-11-06_22-32-58",
+            "content": "@@ -2046,16 +2046,1309 @@\n iente.%0A%0A\n+# class Cliente: %0A#     def __init__(self, id: str, phone: int, index: int):%0A#         self.id = id %0A#         self.phone = phone %0A    %0A#     def __str__(self):%0A#         return f%22%7Bself.id%7D:%7Bself.phone%7D%22%0A%0A# class Sala: %0A#     def __init__(self, quant_cadeiras):%0A#         self.cadeiras:list%5BCliente %7C None%5D = %5B%5D%0A#         for _ in range (quant_cadeiras):%0A#             self.cadeiras.append(None)%0A%0A#     def reserve(self, id: str, phone: int, index: int):%0A#         if index %3C 0 or index %3E= len(self.cadeiras):%0A#             print(%22fail: cadeira nao existe%22)%0A#             return %0A#         for cadeiras in self.cadeiras:%0A#             if cadeiras is not None and cadeiras.id == id: %0A#                 print(%22fail: cadeira ja esta ocupada%22)%0A#                 return %0A            %0A#             self.cadeiras %5Bindex%5D = Cliente(id, phone)%0A%0A%0A#     def cancel(self, id: str):%0A#         for i, cadeiras in enumerate(self.cadeiras):%0A#             if cadeiras is not None and cadeiras.id == id:%0A#                 self.cadeiras%5Bi%5D =  None%0A#                 return %0A#         print(%22fail: cliente nao esta no cinema%22)%0A%0A#     def get_cadeiras (self):%0A#         return self.cadeiras %0A    %0A#     def __str__(self):%0A#         return %22%5B%22 + %22 %22.join(%22-%22 if x is None else str(x) for x in self.cadeiras) + %22%5D%22%0A\n class Cl\n@@ -3565,32 +3565,32 @@\n uant_cadeiras):%0A\n+\n         self.cad\n@@ -3623,33 +3623,8 @@\n %5D = \n-%0A        self.cadeiras = \n %5BNon\n",
+            "lines": "128"
+        },
+        {
+            "label": "2025-11-06_22-34-10",
+            "content": "@@ -2323,16 +2323,19 @@\n  %7C None%5D\n+ = \n %0A       \n",
+            "lines": "91"
+        },
+        {
+            "label": "2025-11-06_22-34-20",
+            "content": "@@ -2386,24 +2386,16 @@\n eiras)%5D%0A\n-        \n %0A    def\n@@ -2408,16 +2408,17 @@\n ve(self,\n+ \n id: str,\n@@ -2435,32 +2435,33 @@\n t, index: int):%0A\n+%0A\n         if index\n@@ -2553,33 +2553,33 @@\n           return\n- \n+%0A\n %0A        %0A      \n@@ -2563,32 +2563,73 @@\n return%0A%0A        \n+# Verifica se o cliente j%C3%A1 est%C3%A1 no cinema\n %0A        for cad\n@@ -2698,17 +2698,16 @@\n cadeira.\n- \n id == id\n@@ -2779,33 +2779,86 @@\n           return\n- \n+%0A        %0A        # Verifica se a cadeira est%C3%A1 ocupada\n %0A        if self\n@@ -2956,17 +2956,45 @@\n   return\n- \n+%0A%0A        # Reserva a cadeira\n %0A       \n@@ -3036,20 +3036,16 @@\n  phone)%0A\n-    \n %0A    def\n@@ -3216,17 +3216,16 @@\n %5D = None\n- \n %0A       \n@@ -3236,28 +3236,24 @@\n      return%0A\n-    \n         prin\n@@ -3575,17 +3575,16 @@\n    break\n- \n %0A%0A      \n@@ -3647,24 +3647,16 @@\n gs%5B1%5D))%0A\n-        \n %0A       \n@@ -3882,24 +3882,16 @@\n  index)%0A\n-        \n %0A       \n@@ -3934,17 +3934,16 @@\n    sala.\n- \n cancel(a\n",
+            "lines": "91"
+        },
+        {
+            "label": "2025-11-10_11-02-04",
+            "content": "@@ -2386,16 +2386,24 @@\n eiras)%5D%0A\n+        \n %0A    def\n@@ -2412,25 +2412,24 @@\n eserve(self,\n- \n id: str, pho\n@@ -2450,17 +2450,16 @@\n : int):%0A\n-%0A\n         \n@@ -2559,33 +2559,42 @@\n           return\n-%0A\n+ %0A        \n %0A        for cad\n@@ -2655,32 +2655,33 @@\n one and cadeira.\n+ \n id == id:%0A      \n@@ -2753,24 +2753,16 @@\n   return\n-%0A       \n  %0A      \n@@ -2869,17 +2869,17 @@\n   return\n-%0A\n+ \n %0A       \n@@ -2921,16 +2921,20 @@\n  phone)%0A\n+    \n %0A    def\n@@ -3105,16 +3105,17 @@\n %5D = None\n+ \n %0A       \n@@ -3130,16 +3130,20 @@\n  return%0A\n+    \n         \n@@ -3469,16 +3469,17 @@\n    break\n+ \n %0A%0A      \n@@ -3542,16 +3542,24 @@\n gs%5B1%5D))%0A\n+        \n %0A       \n@@ -3785,16 +3785,24 @@\n  index)%0A\n+        \n %0A       \n@@ -3845,16 +3845,17 @@\n    sala.\n+ \n cancel(a\n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-10_11-03-08",
+            "content": "# O objetivo desta atividade \u00e9 implementar m\u00e9todos para manipular uma sala de cinema, permitindo a reserva, cancelamento e consulta de cadeiras.\n\n# - **Descri\u00e7\u00e3o**\n#   - A sala de cinema \u00e9 representada pela classe Sala `Theater`, que possui um conjunto de cadeiras, cada uma associada a um cliente ou vazia.\n#   - Os m\u00e9todos a serem implementados permitir\u00e3o reservar uma cadeira para um cliente, cancelar a reserva de uma cadeira e consultar o estado das cadeiras na sala.\n#   - Cada cadeira pode estar associada a um objeto Cliente `Client`, representando um cliente que reservou a cadeira, ou ser nula, indicando que a cadeira est\u00e1 vazia.\n#   - Os m\u00e9todos fornecidos devem lidar com valida\u00e7\u00f5es, como verificar se a cadeira existe, se est\u00e1 ocupada e se o cliente j\u00e1 est\u00e1 presente na sala.\n\n# - **Responsabilidades**\n#   - A classe Sala `Theater` \u00e9 respons\u00e1vel por gerenciar as opera\u00e7\u00f5es relacionadas \u00e0s cadeiras na sala de cinema.\n#     - M\u00e9todos a serem implementados:\n#       - p\u00fablicos: s\u00e3o m\u00e9todos acessados por outras classes.\n#         - `reserve(id: string, phone: number, index: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.\n#         - `cancel(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.\n#         - `getSeats(): Array<Client | null>`: Retorna um array contendo o estado atual de todas as cadeiras na sala.\n#         - `toString(): string`: Retorna uma representa\u00e7\u00e3o em string do estado atual das cadeiras na sala.\n#       - privados: s\u00e3o m\u00e9todos apenas de uso interno, utilizados para auxiliar as opera\u00e7\u00f5es da classe.\n#         - `search(name: string): int`: Procura o \u00edndice da cadeira reservada pelo cliente com o nome especificado.\n#         - `verifyIndix(index: number)`: Verifica se um \u00edndice de cadeira \u00e9 v\u00e1lido na sala.\n#   - A classe `Client` \u00e9 respons\u00e1vel por representar os clientes que reservam cadeiras na sala de cinema.\n#     - A classe possui m\u00e9todos para obter e definir o ID e telefone do cliente, bem como uma representa\u00e7\u00e3o em string do cliente.\n\nclass Cliente: \n    def __init__(self, id: str, phone: int):\n        self.id = id \n        self.phone = phone \n    \n    def __str__(self):\n        return f\"{self.id}:{self.phone}\"\n\nclass Sala: \n    def __init__(self, quant_cadeiras):\n        self.cadeiras: list[Cliente | None]\n        self.cadeiras = [None for _ in range(quant_cadeiras)]\n\n    def reserve(self, id: str, phone: int, index: int):\n\n        if index < 0 or index >= len(self.cadeiras):\n            print(\"fail: cadeira nao existe\")\n            return\n\n        for cadeira in self.cadeiras:\n            if cadeira is not None and cadeira.id == id:\n                print(\"fail: cliente ja esta no cinema\")\n                return\n        \n        if self.cadeiras[index] is not None:\n            print(\"fail: cadeira ja esta ocupada\")\n            return\n\n        self.cadeiras[index] = Cliente(id, phone)\n\n    def cancel(self, id: str):\n        for i, cadeira in enumerate(self.cadeiras):\n            if cadeira is not None and cadeira.id == id:\n                self.cadeiras[i] = None\n                return\n        print(\"fail: cliente nao esta no cinema\")\n\n    def __str__(self):\n        return \"[\" + \" \".join(\"-\" if x is None else str(x) for x in self.cadeiras) + \"]\"\n\ndef main():\n    sala = Sala(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n\n        elif args[0] == \"init\":\n            sala = Sala(int(args[1]))\n\n        elif args[0] == \"show\":\n            print(sala)\n        \n        elif args[0] == \"reserve\":\n            id = args[1]\n            phone = int(args[2])\n            index = int(args[3])\n            sala.reserve(id, phone, index)\n\n        elif args[0] == \"cancel\":\n            sala.cancel(args[1])\n\nmain()",
+            "lines": "88"
+        }
+    ]
+}

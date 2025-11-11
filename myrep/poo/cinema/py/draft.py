@@ -21,11 +21,69 @@
 #     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 
 class Cliente: 
-    def __init__(self, id: str, telefone: int, index: int):
+    def __init__(self, id: str, phone: int):
         self.id = id 
-        self.telefone = telefone 
-        self.index = index 
+        self.phone = phone 
+    
+    def __str__(self):
+        return f"{self.id}:{self.phone}"
+
+class Sala: 
+    def __init__(self, quant_cadeiras):
+        self.cadeiras: list[Cliente | None]
+        self.cadeiras = [None for _ in range(quant_cadeiras)]
+
+    def reserve(self, id: str, phone: int, index: int):
+
+        if index < 0 or index >= len(self.cadeiras):
+            print("fail: cadeira nao existe")
+            return
+
+        for cadeira in self.cadeiras:
+            if cadeira is not None and cadeira.id == id:
+                print("fail: cliente ja esta no cinema")
+                return
         
-class Cinema: 
-    def __init__(self, cadeiras):
-        self.cadeiras:list[Cliente | None]
+        if self.cadeiras[index] is not None:
+            print("fail: cadeira ja esta ocupada")
+            return
+
+        self.cadeiras[index] = Cliente(id, phone)
+
+    def cancel(self, id: str):
+        for i, cadeira in enumerate(self.cadeiras):
+            if cadeira is not None and cadeira.id == id:
+                self.cadeiras[i] = None
+                return
+        print("fail: cliente nao esta no cinema")
+
+    def __str__(self):
+        return "[" + " ".join("-" if x is None else str(x) for x in self.cadeiras) + "]"
+
+def main():
+    sala = Sala(0)
+    while True:
+        line = input()
+        print(f"${line}")
+        args = line.split()
+
+        if args[0] == "end":
+            break
+
+        elif args[0] == "init":
+            sala = Sala(int(args[1]))
+
+        elif args[0] == "show":
+            print(sala)
+        
+        elif args[0] == "reserve":
+            id = args[1]
+            phone = int(args[2])
+            index = int(args[3])
+            sala.reserve(id, phone, index)
+
+        elif args[0] == "cancel":
+            sala.cancel(args[1])
+
+
+main()
