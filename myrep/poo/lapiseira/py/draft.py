@@ -115,6 +115,7 @@ class Lapiseira:
 
         if self._bico.get_tamanho() - consumo < 10:
             print("fail: folha incompleta")
+            self._bico._tamanho = 10 
             return
         
         self._bico._tamanho -= consumo
