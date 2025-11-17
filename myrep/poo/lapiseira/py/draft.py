@@ -51,6 +51,8 @@ class Lapiseira:
 
     def __str__(self):
         return f"calibre: {self._calibre}, bico: {self.get_bico()}, tambor: <{self.get_tambor()}>" 
+
+
     
     def get_tambor(self):
         grafites_reserva = ""
@@ -98,20 +100,26 @@ class Lapiseira:
             return 
         
         expessura: dict[str, int] = {
-            "HB": 1,
-            "2B": 2, 
-            "4B": 4,
-            "6B": 6
+        "HB": 1,
+        "2B": 2, 
+        "4B": 4,
+        "6B": 6
         }
-        # # gastoGrafite = {"HB": 1, "2B": 2, "4B": 4, "6B": 6 ["dureza"]}
-        # consumo = folha * expessura
 
-        # if self._bico[Grafite.tamanho] - consumo < 10:
-        #     print("fail: folha incompleta")
-        #     self._bico = None 
-        #     return
+        consumo = expessura[self._bico.get_dureza()]
+
+        if self._bico.get_tamanho() < 10:
+            print("fail: tamanho insuficiente")
+            self._bico = None
+            return
+
+        if self._bico.get_tamanho() - consumo < 10:
+            print("fail: folha incompleta")
+            return
         
+        self._bico._tamanho -= consumo
 
+        
         
 def main():
     lapiseira = Lapiseira(None)
